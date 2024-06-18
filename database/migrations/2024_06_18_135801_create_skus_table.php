@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('skus', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained('products')->nullOnDelete();
             $table->string('name');
             $table->decimal('price', 10, 2);
             $table->integer('qty');
